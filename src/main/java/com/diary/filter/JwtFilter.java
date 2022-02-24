@@ -40,7 +40,8 @@ public class JwtFilter extends OncePerRequestFilter {
 			jwt = tokenCookie.getValue();
 			userName = jwtUtil.getUsernameFromToken(jwt);
 		} else {
-			if (authorizationHeader != null && authorizationHeader.startsWith("Bearer")) {
+			if (authorizationHeader != null && authorizationHeader.startsWith("Bearer")
+					&& authorizationHeader.length() > 8) {
 				jwt = authorizationHeader.substring(7);
 				userName = jwtUtil.getUsernameFromToken(jwt);
 			}

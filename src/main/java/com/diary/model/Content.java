@@ -15,6 +15,7 @@ public class Content {
 	private String month;
 	private String year;
 	private LocalDateTime lastUpdated;
+	private List<Entry> entries;
 
 	public LocalDateTime getLastUpdated() {
 		return lastUpdated;
@@ -32,8 +33,6 @@ public class Content {
 		this.month = month;
 	}
 
-	private List<String> content;
-
 	public String getUserName() {
 		return userName;
 	}
@@ -50,30 +49,30 @@ public class Content {
 		this.date = date;
 	}
 
-	public List<String> getContent() {
-		return content;
-	}
-
-	public void setContent(List<String> content) {
-		this.content = content;
-	}
-
-	public Content(String userName, String date, String month, String year, LocalDateTime lastUpdated,
-			List<String> content) {
-		this.userName = userName;
-		this.date = date;
-		this.month = month;
-		this.year = year;
-		this.lastUpdated = lastUpdated;
-		this.content = content;
-	}
-
 	public String getYear() {
 		return year;
 	}
 
 	public void setYear(String year) {
 		this.year = year;
+	}
+
+	public List<Entry> getEntries() {
+		return entries;
+	}
+
+	public void setEntries(List<Entry> entries) {
+		this.entries = entries;
+	}
+
+	public Content(String userName, String date, String month, String year, LocalDateTime lastUpdated,
+			List<Entry> entries) {
+		this.userName = userName;
+		this.date = date;
+		this.month = month;
+		this.year = year;
+		this.lastUpdated = lastUpdated;
+		this.entries = entries;
 	}
 
 	public Content() {

@@ -19,10 +19,10 @@ public class JwtUserDetails implements UserDetailsService {
 
 	@Autowired
 	UtilsService utilsService;
-	
-	public List<GrantedAuthority> getAuthorities(List<String> rolesFromDb){
+
+	public List<GrantedAuthority> getAuthorities(List<String> rolesFromDb) {
 		List<GrantedAuthority> roles = new ArrayList<>();
-		for(String role :rolesFromDb) {
+		for (String role : rolesFromDb) {
 			roles.add(new SimpleGrantedAuthority(role));
 		}
 		return roles;
@@ -31,7 +31,7 @@ public class JwtUserDetails implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserDao userDao = utilsService.checkUserExist(username);
-		if(userDao == null) {
+		if (userDao == null) {
 			throw new UsernameNotFoundException("User not found with" + username);
 		}
 		return new User(userDao.getUserName(), userDao.getPassword(), getAuthorities(userDao.getRoles()));

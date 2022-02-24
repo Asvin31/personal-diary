@@ -11,4 +11,5 @@ public interface ContentRepo extends MongoRepository<Content, String> {
 
 	@Query("{userName :?0 , date: ?1}")
 	Optional<Content> findContentForUser(String userName, String date);
+
 }
